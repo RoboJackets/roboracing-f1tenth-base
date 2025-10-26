@@ -27,7 +27,7 @@ install(TARGETS ${PROJECT_NAME} DESTINATION lib/)
 
 rclcpp_components_register_node(
     ${PROJECT_NAME}
-    PLUGIN lidar::LidarNode
+    PLUGIN "lidar::LidarNode"
     EXECUTABLE lidarnode
 )
 
