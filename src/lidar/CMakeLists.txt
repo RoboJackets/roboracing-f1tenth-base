@@ -11,6 +11,8 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclcpp_components REQUIRED)
 find_package(nav_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(tf2_ros REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
@@ -22,7 +24,7 @@ add_library(${PROJECT_NAME} SHARED src/lidar_node.cpp)
 #   $<INSTALL_INTERFACE:include>)
 
 target_compile_features(${PROJECT_NAME} PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
-ament_target_dependencies(${PROJECT_NAME} rclcpp rclcpp_components nav_msgs)
+ament_target_dependencies(${PROJECT_NAME} rclcpp rclcpp_components nav_msgs geometry_msgs tf2_ros)
 install(TARGETS ${PROJECT_NAME} DESTINATION lib/)
 
 rclcpp_components_register_node(
